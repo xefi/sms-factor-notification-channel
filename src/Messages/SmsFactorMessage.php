@@ -44,7 +44,8 @@ class SmsFactorMessage
     /**
      * Set the message text.
      *
-     * @param  string  $text
+     * @param string $text
+     *
      * @return $this
      */
     public function text($text)
@@ -57,7 +58,8 @@ class SmsFactorMessage
     /**
      * Set the message pushtype.
      *
-     * @param  string  $pushtype
+     * @param string $pushtype
+     *
      * @return $this
      */
     public function pushtype($pushtype)
@@ -70,7 +72,8 @@ class SmsFactorMessage
     /**
      * Set the message delay.
      *
-     * @param  \Carbon\Carbon  $delay
+     * @param \Carbon\Carbon $delay
+     *
      * @return $this
      */
     public function delay($delay)
@@ -87,7 +90,8 @@ class SmsFactorMessage
     /**
      * Set the message sender.
      *
-     * @param  string  $sender
+     * @param string $sender
+     *
      * @return $this
      */
     public function sender($sender)
@@ -100,7 +104,8 @@ class SmsFactorMessage
     /**
      * Set the message gsmsmsid.
      *
-     * @param  string  $gsmsmsid
+     * @param string $gsmsmsid
+     *
      * @return $this
      */
     public function gsmsmsid($gsmsmsid)

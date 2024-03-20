@@ -2,22 +2,23 @@
 
 namespace Xefi\SmsFactor\Channels;
 
-use Xefi\SmsFactor\Messages\SmsFactorMessage;
-use SMSFactor\Message;
 use Illuminate\Notifications\Notification;
+use SMSFactor\Message;
+use Xefi\SmsFactor\Messages\SmsFactorMessage;
 
 class SmsFactorSmsChannel extends Notification
 {
     /**
      * Send the given notification.
      *
-     * @param  mixed  $notifiable
-     * @param  \Illuminate\Notifications\Notification  $notification
+     * @param mixed                                  $notifiable
+     * @param \Illuminate\Notifications\Notification $notification
+     *
      * @return \SmsFactor\ApiResponse
      */
     public function send($notifiable, Notification $notification)
     {
-        if (! $to = $notifiable->routeNotificationFor('sms-factor', $notification)) {
+        if (!$to = $notifiable->routeNotificationFor('sms-factor', $notification)) {
             return;
         }
 
@@ -28,11 +29,11 @@ class SmsFactorSmsChannel extends Notification
         }
 
         return Message::send([
-            'to' => $to,
-            'text' => trim($message->text),
-            'delay' => $message->delay,
+            'to'       => $to,
+            'text'     => trim($message->text),
+            'delay'    => $message->delay,
             'pushtype' => $message->pushtype ?? null,
-            'sender' => $message->sender ?? config('sms-factor.sms_from'),
+            'sender'   => $message->sender ?? config('sms-factor.sms_from'),
             'gsmsmsid' => $message->gsmsmsid ?? null,
         ]);
     }

@@ -2,10 +2,10 @@
 
 namespace Xefi\SmsFactor;
 
+use Illuminate\Notifications\ChannelManager;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\ServiceProvider;
 use Xefi\SmsFactor\Channels\SmsFactorSmsChannel;
-use Illuminate\Support\Facades\Notification;
-use Illuminate\Notifications\ChannelManager;
 
 class SmsFactorChannelServiceProvider extends ServiceProvider
 {
@@ -16,7 +16,7 @@ class SmsFactorChannelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/sms-factor.php', 'sms-factor');
+        $this->mergeConfigFrom(__DIR__.'/../config/sms-factor.php', 'sms-factor');
 
         Notification::resolved(function (ChannelManager $service) {
             $service->extend('sms-factor', function ($app) {
