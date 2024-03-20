@@ -65,4 +65,4 @@ public function toSmsFactor(object $notifiable): SmsFactorMessage
 }
 ```
 
-## Support XEFI
+## Support
