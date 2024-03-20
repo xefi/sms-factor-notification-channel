@@ -11,7 +11,6 @@ use SMSFactor\Message;
 use SMSFactor\SMSFactor;
 use Xefi\SmsFactor\Channels\SmsFactorSmsChannel;
 use Xefi\SmsFactor\Messages\SmsFactorMessage;
-use Xefi\SmsFactor\SmsFactorChannelServiceProvider;
 
 class SmsFactorSmsChannelTest extends TestCase
 {
@@ -24,8 +23,8 @@ class SmsFactorSmsChannelTest extends TestCase
 
     public function testSmsIsSentViaSmsFactor()
     {
-        $notification = new NotificationSmsFactorSmsChannelTestNotification;
-        $notifiable = new NotificationSmsFactorSmsChannelTestNotifiable;
+        $notification = new NotificationSmsFactorSmsChannelTestNotification();
+        $notifiable = new NotificationSmsFactorSmsChannelTestNotifiable();
 
         $channel = new SmsFactorSmsChannel();
 
@@ -33,11 +32,11 @@ class SmsFactorSmsChannelTest extends TestCase
             $mock->shouldReceive('send')
                 ->with(
                     [
-                        'to' => '5555555555',
-                        'text' => 'this is my message',
-                        'delay' => null,
+                        'to'       => '5555555555',
+                        'text'     => 'this is my message',
+                        'delay'    => null,
                         'pushtype' => null,
-                        'sender' => null,
+                        'sender'   => null,
                         'gsmsmsid' => null,
                     ]
                 )
@@ -49,8 +48,8 @@ class SmsFactorSmsChannelTest extends TestCase
 
     public function testSmsIsSentViaSmsFactorWithCustomSender()
     {
-        $notification = new NotificationSmsFactorSmsChannelTestCustomSenderNotification;
-        $notifiable = new NotificationSmsFactorSmsChannelTestNotifiable;
+        $notification = new NotificationSmsFactorSmsChannelTestCustomSenderNotification();
+        $notifiable = new NotificationSmsFactorSmsChannelTestNotifiable();
 
         $channel = new SmsFactorSmsChannel();
 
@@ -58,11 +57,11 @@ class SmsFactorSmsChannelTest extends TestCase
             $mock->shouldReceive('send')
                 ->with(
                     [
-                        'to' => '5555555555',
-                        'text' => 'this is my message',
-                        'delay' => null,
+                        'to'       => '5555555555',
+                        'text'     => 'this is my message',
+                        'delay'    => null,
                         'pushtype' => null,
-                        'sender' => '12345',
+                        'sender'   => '12345',
                         'gsmsmsid' => null,
                     ]
                 )
@@ -74,8 +73,8 @@ class SmsFactorSmsChannelTest extends TestCase
 
     public function testSmsIsSentViaSmsFactorWithCustomDelay()
     {
-        $notification = new NotificationSmsFactorSmsChannelTestCustomDelayNotification;
-        $notifiable = new NotificationSmsFactorSmsChannelTestNotifiable;
+        $notification = new NotificationSmsFactorSmsChannelTestCustomDelayNotification();
+        $notifiable = new NotificationSmsFactorSmsChannelTestNotifiable();
 
         $channel = new SmsFactorSmsChannel();
 
@@ -83,11 +82,11 @@ class SmsFactorSmsChannelTest extends TestCase
             $mock->shouldReceive('send')
                 ->with(
                     [
-                        'to' => '5555555555',
-                        'text' => 'this is my message',
-                        'delay' => Carbon::create(2024, 01, 01)->format('Y-m-d H:i:s'),
+                        'to'       => '5555555555',
+                        'text'     => 'this is my message',
+                        'delay'    => Carbon::create(2024, 01, 01)->format('Y-m-d H:i:s'),
                         'pushtype' => null,
-                        'sender' => null,
+                        'sender'   => null,
                         'gsmsmsid' => null,
                     ]
                 )
@@ -99,8 +98,8 @@ class SmsFactorSmsChannelTest extends TestCase
 
     public function testSmsIsSentViaSmsFactorWithCustomPushType()
     {
-        $notification = new NotificationSmsFactorSmsChannelTestCustomPushTypeNotification;
-        $notifiable = new NotificationSmsFactorSmsChannelTestNotifiable;
+        $notification = new NotificationSmsFactorSmsChannelTestCustomPushTypeNotification();
+        $notifiable = new NotificationSmsFactorSmsChannelTestNotifiable();
 
         $channel = new SmsFactorSmsChannel();
 
@@ -108,11 +107,11 @@ class SmsFactorSmsChannelTest extends TestCase
             $mock->shouldReceive('send')
                 ->with(
                     [
-                        'to' => '5555555555',
-                        'text' => 'this is my message',
-                        'delay' => null,
+                        'to'       => '5555555555',
+                        'text'     => 'this is my message',
+                        'delay'    => null,
                         'pushtype' => 'alert',
-                        'sender' => null,
+                        'sender'   => null,
                         'gsmsmsid' => null,
                     ]
                 )
@@ -124,8 +123,8 @@ class SmsFactorSmsChannelTest extends TestCase
 
     public function testSmsIsSentViaSmsFactorWithCustomGsmsmsid()
     {
-        $notification = new NotificationSmsFactorSmsChannelTestCustomGsmsmsidNotification;
-        $notifiable = new NotificationSmsFactorSmsChannelTestNotifiable;
+        $notification = new NotificationSmsFactorSmsChannelTestCustomGsmsmsidNotification();
+        $notifiable = new NotificationSmsFactorSmsChannelTestNotifiable();
 
         $channel = new SmsFactorSmsChannel();
 
@@ -133,11 +132,11 @@ class SmsFactorSmsChannelTest extends TestCase
             $mock->shouldReceive('send')
                 ->with(
                     [
-                        'to' => '5555555555',
-                        'text' => 'this is my message',
-                        'delay' => null,
+                        'to'       => '5555555555',
+                        'text'     => 'this is my message',
+                        'delay'    => null,
                         'pushtype' => null,
-                        'sender' => null,
+                        'sender'   => null,
                         'gsmsmsid' => 'my-custom-id',
                     ]
                 )
