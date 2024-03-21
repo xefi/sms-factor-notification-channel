@@ -16,7 +16,7 @@ SMS_FACTOR_TOKEN=your-token
 
 ## Notification channel
 
-In order to configure the notification to deliver via the SMSFactor channel, you need to specify this in the `via` method:
+In order to configure the notification to deliver via the SMSFactor channel, you need to specify this in the `via` method of your notification:
 
 ```php
 /**
