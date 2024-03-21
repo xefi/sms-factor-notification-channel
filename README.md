@@ -14,6 +14,22 @@ The package includes a [configuration file](https://github.com/xefi/sms-factor-n
 SMS_FACTOR_TOKEN=your-token
 ```
 
+## Notification channel
+
+In order to configure the notification to deliver via the SMSFactor channel, you need to specify this in the `via` method:
+
+```php
+/**
+ * Get the notification's delivery channels.
+ *
+ * @return array<int, string>
+ */
+public function via(object $notifiable): array
+{
+    return ['sms-factor'];
+}
+```
+
 ## Formating SMS Notifications
 
 If a notification supports being sent as an SMS, you should define a `toSmsFactor` method on the notification class. This method will receive a $notifiable entity and should return an `Xefi\SmsFactor\Messages\SmsFactorMessage` instance:
